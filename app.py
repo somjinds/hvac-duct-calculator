@@ -46,7 +46,7 @@ def main():
     default_Q = 100
     default_dp = 0.615
 
- col1, col2 = st.columns(2)
+    col1, col2 = st.columns(2)
 
     with col1:
         Q = st.number_input("Airflow rate Q (L/s)", min_value=25, step=25, format="%d", value=default_Q)
