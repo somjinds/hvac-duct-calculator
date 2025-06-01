@@ -218,7 +218,7 @@ def main():
                 st.dataframe(results, use_container_width=True)
 
 """
-            import pandas as pd
+import pandas as pd
 
             if results:
                 df = pd.DataFrame(results)
