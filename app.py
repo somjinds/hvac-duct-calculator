@@ -218,23 +218,22 @@ def main():
                 st.dataframe(results, use_container_width=True)
 
 """
-import pandas as pd
+            import pandas as pd
 
-if results:
-    df = pd.DataFrame(results)
+            if results:
+                df = pd.DataFrame(results)
 
-    def highlight_valid(row):
-        if row["OK"] == "✓":
-            return ['background-color: #d4edda; font-weight: bold'] * len(row)
-        else:
-            return [''] * len(row)
-
-    st.dataframe(df.style.apply(highlight_valid, axis=1), use_container_width=True)
-
-        else:
-            st.warning("⚠ No suitable duct sizes found.")
-    else:
-        st.error("Please enter both Q and dp.")
+                def highlight_valid(row):
+                    if row["OK"] == "✓":
+                        return ['background-color: #d4edda; font-weight: bold'] * len(row)
+                    else:
+                        return [''] * len(row)
+                        
+                        st.dataframe(df.style.apply(highlight_valid, axis=1), use_container_width=True)
+                    else:
+                        st.warning("⚠ No suitable duct sizes found.")
+            else:
+st.error("Please enter both Q and dp.")
 
 if __name__ == "__main__":
     main()
