@@ -46,8 +46,8 @@ def main():
     default_Q = 100
     default_dp = 0.615
 
-    Q = st.number_input("Airflow rate Q (L/s)", min_value=25, step=25, format="%d",default_Q)
-    dp = st.number_input("Pressure drop dp (Pa/m)", min_value=0.005, step=0.005, format="%.3f",default_dp)
+    Q = st.number_input("Airflow rate Q (L/s)", min_value=25, step=25, format="%d",value=default_Q)
+    dp = st.number_input("Pressure drop dp (Pa/m)", min_value=0.005, step=0.005, format="%.3f",value=default_dp)
 
     if st.button("Calculate"):
         if Q and dp:
