@@ -40,8 +40,8 @@ def estimate_rectangular_duct_width(Q: float, dp: float, b: float) -> float | No
 
 def main():
     st.set_page_config(page_title="HVAC Duct Sizing Calculator", layout="centered")
-    st.title("🔧 HVAC Duct Sizing Calculator")
-    st.markdown("Enter airflow and pressure drop per unit length to estimate square and rectangular duct sizes.")
+    st.title("Duct Size Calculator")
+    st.markdown("Enter airflow and pressure drop to estimate duct sizes.")
     # Set default value for Q and dp
     default_Q = 100
     default_dp = 0.615
