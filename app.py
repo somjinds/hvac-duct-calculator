@@ -118,16 +118,14 @@ def main():
     st.title("📏 HVAC Duct Sizing Calculator")
     st.markdown("Enter airflow and pressure drop to estimate duct sizes.")
 
-    default_Q = 100
-    default_dp = 0.615
-
+    # Input fields
     col1, col2 = st.columns(2)
     with col1:
-        Q = st.number_input("Airflow rate Q (L/s)", min_value=25, step=25, format="%d", value=default_Q)
+        Q = st.number_input("Airflow rate Q (L/s)", min_value=25, step=25, format="%d", value=100)
     with col2:
-        dp = st.number_input("Pressure drop dp (Pa/m)", min_value=0.005, step=0.005, format="%.3f", value=default_dp)
+        dp = st.number_input("Pressure drop dp (Pa/m)", min_value=0.005, step=0.005, format="%.3f", value=0.615)
 
-    if Q and dp:
+    if Q > 0 and dp > 0:
         square_size = estimate_ideal_square_duct(Q, dp)
 
         if square_size is None:
@@ -136,7 +134,7 @@ def main():
         else:
             st.success(f"✅ Ideal square duct size: **{int(square_size)} mm**")
 
-        st.markdown("### 📐 Recommended Duct Sizes")
+        st.markdown("### 📐 Recommended Rectangular Duct Sizes")
         initial_height = max(50, math.ceil(((square_size / 2) - 25) / 50) * 50)
 
         results = []
@@ -173,3 +171,6 @@ def main():
             st.dataframe(results, use_container_width=True)
         else:
             st.warning("⚠ No suitable rectangular duct sizes found.")
+
+if __name__ == "__main__":
+    main()
