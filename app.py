@@ -48,11 +48,11 @@ def main():
 
  col1, col2 = st.columns(2)
 
-with col1:
-    Q = st.number_input("Airflow rate Q (L/s)", min_value=25, step=25, format="%d", value=default_Q)
+    with col1:
+        Q = st.number_input("Airflow rate Q (L/s)", min_value=25, step=25, format="%d", value=default_Q)
 
-with col2:
-    dp = st.number_input("Pressure drop dp (Pa/m)", min_value=0.005, step=0.005, format="%.3f", value=default_dp)
+    with col2:
+        dp = st.number_input("Pressure drop dp (Pa/m)", min_value=0.005, step=0.005, format="%.3f", value=default_dp)
 
 
     if st.button("Calculate"):
