@@ -112,6 +112,7 @@ if __name__ == "__main__":
 
 import streamlit as st
 import math
+import pandas as pd
 
 # --- Duct Calculation Functions ---
 
@@ -213,28 +214,24 @@ def main():
                     "dp (Pa/m)": round(actual_dp, 3),
                     "De (mm)": round(De, 0),
                 })
-"""
-            if results:
-                st.dataframe(results, use_container_width=True)
 
-"""
-import pandas as pd
-if results:
-    df = pd.DataFrame(results)
-    
-    def highlight_valid(row):
-        if row["OK"] == "✓":
-            return ['background-color: #d4edda; font-weight: bold'] * len(row)
+            if results:
+                df = pd.DataFrame(results)
+
+                def highlight_valid(row):
+                    if row["OK"] == "✓":
+                        return ['background-color: #d4edda; font-weight: bold'] * len(row)
+                    else:
+                        return [''] * len(row)
+
+                st.dataframe(df.style.apply(highlight_valid, axis=1), use_container_width=True)
+            else:
+                st.warning("⚠ No suitable duct sizes found.")
         else:
-            return [''] * len(row)
-                        
-    st.dataframe(df.style.apply(highlight_valid, axis=1), use_container_width=True)
-else:
-    st.warning("⚠ No suitable duct sizes found.")
-else:
-st.error("Please enter both Q and dp.")
+            st.error("Please enter both Q and dp.")
 
 if __name__ == "__main__":
     main()
+
 
 
