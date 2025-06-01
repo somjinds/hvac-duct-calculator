@@ -92,7 +92,7 @@ def main():
                     "OK": marker,
                     "Width×Height (mm)": f"{int(width)}×{int(height)}",
                     "AR": round(AR, 2),
-                    "Velocity (m/s)": round(velocity, 2),
+                    "Velocity (m/s)": round(velocity, 2, format="%.2f"),
                     "dp (Pa/m)": round(actual_dp, 3),
                     "De (mm)": round(De, 0),
                 })
