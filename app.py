@@ -109,8 +109,6 @@ def main():
 if __name__ == "__main__":
     main()
 """
-import streamlit as st
-import math
 
 def main():
     st.set_page_config(page_title="HVAC Duct Sizing Calculator", layout="centered")
