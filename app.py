@@ -44,7 +44,7 @@ def main():
     st.markdown("Enter airflow and pressure drop to estimate square and rectangular duct sizes.")
 
     Q = st.number_input("Airflow rate Q (L/s)", min_value=25, step=25)
-    dp = st.number_input("Pressure drop dp (Pa/m)", min_value=0.615, step=0.01)
+    dp = st.number_input("Pressure drop dp (Pa/m)", min_value=0.615, step=0.005)
 
     if st.button("Calculate"):
         if Q and dp:
@@ -85,7 +85,7 @@ def main():
                     "AR": round(AR, 2),
                     "Velocity (m/s)": round(velocity, 2),
                     "dp (Pa/m)": round(actual_dp, 3),
-                    "De (mm)": round(De, 1),
+                    "De (mm)": round(De, 0),
                 })
 
             if results:
