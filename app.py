@@ -113,7 +113,7 @@ if __name__ == "__main__":
 import streamlit as st
 import math
 
-# --- Calculation Functions ---
+# --- Duct Calculation Functions ---
 
 def estimate_ideal_square_duct(Q: float, dp: float) -> float | None:
     pi = math.pi
@@ -150,7 +150,7 @@ def estimate_rectangular_duct_width(Q: float, dp: float, b: float) -> float | No
 
     return None
 
-# --- Streamlit App ---
+# --- Streamlit App UI ---
 
 def main():
     st.set_page_config(page_title="HVAC Duct Sizing Calculator", layout="centered")
@@ -160,15 +160,17 @@ def main():
     default_Q = 100
     default_dp = 0.615
 
-    # Inputs in one row
-    col1, col2 = st.columns(2)
-    with col1:
-        Q = st.number_input("Airflow rate: Q (L/s)", min_value=25, step=25, format="%d", value=default_Q)
-    with col2:
-        dp = st.number_input("Pressure drop: dp (Pa/m)", min_value=0.005, step=0.005, format="%.3f", value=default_dp)
+    # Use a form to capture "Enter" submission
+    with st.form("duct_form"):
+        col1, col2 = st.columns(2)
+        with col1:
+            Q = st.number_input("Airflow rate: Q (L/s)", min_value=25, step=25, format="%d", value=default_Q)
+        with col2:
+            dp = st.number_input("Pressure drop: dp (Pa/m)", min_value=0.005, step=0.005, format="%.3f", value=default_dp)
 
-    # Trigger with button
-    if st.button("Calculate"):
+        submitted = st.form_submit_button("Calculate")
+
+    if submitted:
         if Q and dp:
             square_size = estimate_ideal_square_duct(Q, dp)
 
@@ -215,10 +217,11 @@ def main():
             if results:
                 st.dataframe(results, use_container_width=True)
             else:
-                st.warning("⚠ No suitable rectangular duct sizes found.")
+                st.warning("⚠ No suitable duct sizes found.")
         else:
             st.error("Please enter both Q and dp.")
 
 if __name__ == "__main__":
     main()
+
 
