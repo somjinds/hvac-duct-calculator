@@ -43,8 +43,8 @@ def main():
     st.title("🔧 HVAC Duct Sizing Calculator")
     st.markdown("Enter airflow and pressure drop to estimate square and rectangular duct sizes.")
 
-    Q = st.number_input("Airflow rate Q (L/s)", min_value=0.01, step=0.01)
-    dp = st.number_input("Pressure drop dp (Pa/m)", min_value=0.01, step=0.01)
+    Q = st.number_input("Airflow rate Q (L/s)", min_value=25, step=25)
+    dp = st.number_input("Pressure drop dp (Pa/m)", min_value=0.615, step=0.01)
 
     if st.button("Calculate"):
         if Q and dp:
