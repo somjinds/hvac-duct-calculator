@@ -209,10 +209,10 @@ def main():
                     "Option": i + 1,
                     "OK": marker,
                     "W×H (mm)": f"{int(width)}×{int(height)}",
-                    "Aspect Ratio": round(AR, 2),
-                    "Velocity (m/s)": round(velocity, 2),
-                    "dp (Pa/m)": round(actual_dp, 3),
-                    "De (mm)": round(De, 0),
+                    "Aspect Ratio": f"{AR:.2f},                # 2 decimals
+                    "Velocity (m/s)": f"{velocity:.2f}",       # 2 decimals
+                    "dp (Pa/m)": f"{actual_dp:.3f}",           # 3 decimals
+                    "De (mm)": f"{De:.0f}",                    # No decimals
                 })
 
             if results:
