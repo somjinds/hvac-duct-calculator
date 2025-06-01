@@ -178,8 +178,8 @@ def main():
             if square_size is None:
                 st.error("❌ No suitable square duct size found.")
                 return
-           # else:
-           #     st.success(f"✅ Ideal square duct size: **{int(square_size)} mm**")
+            #else:
+            #    st.success(f"✅ Ideal square duct size: **{int(square_size)} mm**")
 
             st.markdown("### 📐 Recommended Duct Sizes")
 
