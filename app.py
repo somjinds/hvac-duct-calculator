@@ -208,7 +208,7 @@ def main():
                     "Option": i + 1,
                     "OK": marker,
                     "W×H (mm)": f"{int(width)}×{int(height)}",
-                    "AR": round(AR, 2),
+                    "Aspect Ratio": round(AR, 2),
                     "Velocity (m/s)": round(velocity, 2),
                     "dp (Pa/m)": round(actual_dp, 3),
                     "De (mm)": round(De, 0),
