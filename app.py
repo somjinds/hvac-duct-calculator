@@ -90,7 +90,7 @@ def main():
                 results.append({
                     "Option": i + 1,
                     "OK": marker,
-                    "Width×Height (mm)": f"{int(width)}×{int(height)}",
+                    "W×H (mm)": f"{int(width)}×{int(height)}",
                     "AR": round(AR, 2),
                     "Velocity (m/s)": round(velocity, 2),
                     "dp (Pa/m)": round(actual_dp, 3),
