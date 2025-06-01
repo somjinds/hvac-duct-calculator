@@ -100,7 +100,7 @@ def main():
             if results:
                 st.dataframe(results, use_container_width=True)
             else:
-                st.warning("⚠ No suitable rectangular duct sizes found.")
+                st.warning("⚠ No suitable duct sizes found.")
 
         else:
             st.error("Please enter both Q and dp.")
