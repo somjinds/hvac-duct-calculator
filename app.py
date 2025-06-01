@@ -220,16 +220,16 @@ def main():
 """
 import pandas as pd
 
-            if results:
-                df = pd.DataFrame(results)
+if results:
+    df = pd.DataFrame(results)
 
-                def highlight_valid(row):
-                    if row["OK"] == "✓":
-                        return ['background-color: #d4edda; font-weight: bold'] * len(row)
-                    else:
-                        return [''] * len(row)
+    def highlight_valid(row):
+        if row["OK"] == "✓":
+            return ['background-color: #d4edda; font-weight: bold'] * len(row)
+        else:
+            return [''] * len(row)
 
-                st.dataframe(df.style.apply(highlight_valid, axis=1), use_container_width=True)
+    st.dataframe(df.style.apply(highlight_valid, axis=1), use_container_width=True)
 
             else:
                 st.warning("⚠ No suitable duct sizes found.")
