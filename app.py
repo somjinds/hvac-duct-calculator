@@ -45,8 +45,6 @@ def main():
 
     Q = st.number_input("Airflow rate Q (L/s)", min_value=25, step=25, format="%d")
     dp = st.number_input("Pressure drop dp (Pa/m)", min_value=0.615, step=0.005, format="%.3f")
-    st.write(f"Airflow rate Q: {Q})
-    st.write(f"Pressure drop dp: {dp}")
 
     if st.button("Calculate"):
         if Q and dp:
