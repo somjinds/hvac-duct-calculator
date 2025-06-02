@@ -111,9 +111,9 @@ def main():
             marker = "✓" if 1.0 <= AR <= 4.0 else "✗"
 
             if unit_system == "IP":
-                width_ip = width / 25.4
-                height_ip = height / 25.4
-                De_ip = De / 25.4
+                width_ip = width / 25
+                height_ip = height / 25
+                De_ip = De / 25
                 results.append({
                     "Option": i + 1,
                     "OK": marker,
