@@ -54,7 +54,7 @@ def main():
         Q_label = "Airflow rate: Q (L/s)"
         dp_label = "Pressure drop: dp (Pa/m)-->Rec. 0.615 - 0.820"
     else:
-        default_Q = 212     # CFM
+        default_Q = 200     # CFM
         default_dp = 0.075  # inch/100ft
         Q_label = "Airflow rate: Q (CFM)"
         dp_label = "Pressure drop: dp (inch/100ft)-->Rec. 0.075 - 0.100"
