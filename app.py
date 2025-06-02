@@ -114,6 +114,7 @@ def main():
                         return [''] * len(row)
 
                 st.dataframe(df.style.apply(highlight_valid, axis=1), use_container_width=True)
+                st.markdown("[Visit somjinnotes.com for more HVAC knowledge sharing](https://somjinnotes.com)")
             else:
                 st.warning("⚠ No suitable duct sizes found.")
         else:
