@@ -52,12 +52,12 @@ def main():
         default_Q = 100     # L/s
         default_dp = 0.615  # Pa/m
         Q_label = "Airflow rate: Q (L/s)"
-        dp_label = "Pressure drop: dp (Pa/m) Rec. 0.615-0.820"
+        dp_label = "Pressure drop: dp (Pa/m) Rec. 0.615 - 0.820"
     else:
         default_Q = 212     # CFM
         default_dp = 0.075  # inch/100ft
         Q_label = "Airflow rate: Q (CFM)"
-        dp_label = "Pressure drop: dp (inch/100ft) Rec.0.075-0.100"
+        dp_label = "Pressure drop: dp (inch/100ft) Rec.0.075 - 0.100"
 
     with st.form("duct_form"):
         col1, col2 = st.columns(2)
@@ -84,9 +84,9 @@ def main():
 
         st.markdown("#### 📐 Recommended Duct Sizes")
         if unit_system == "IP":
-            st.markdown(f"Based on Q = **{int(Q_input)} CFM** and Target dp = **{dp_input} inch/100ft.**")
+            st.markdown(f"Based on Q = **{int(Q_input)}** CFM and Target dp = **{dp_input}** inch/100ft.")
         else:
-            st.markdown(f"Based on Q = **{int(Q_input)} L/s** and Target dp = **{dp_input} Pa/m.**")
+            st.markdown(f"Based on Q = **{int(Q_input)}** L/s and Target dp = **{dp_input}** Pa/m.")
 
         initial_height = max(50, math.ceil(((square_size / 2) - 25) / 50) * 50)
         results = []
