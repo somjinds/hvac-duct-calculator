@@ -82,7 +82,7 @@ def main():
             st.error("❌ No suitable square duct size found.")
             return
 
-        st.markdown("#### 📐 Recommended Duct Sizes")
+        st.markdown("#### ✅ Recommended Duct Sizes")
         if unit_system == "IP":
             st.markdown(f"Based on Q = **{int(Q_input)}** CFM and Target dp = **{dp_input}** inch/100ft.")
         else:
