@@ -70,7 +70,7 @@ def main():
             #    st.success(f"✅ Ideal square duct size: **{int(square_size)} mm**")
 
             st.markdown("#### 📐 Recommended Duct Sizes")
-            st.markdown(f"*Based on Q = **{Q} L/s** and Target dp = **{dp} Pa/m.***")
+            st.markdown(f"Based on Q = **{Q} L/s** and Target dp = **{dp} Pa/m.**")
 
             initial_height = max(50, math.ceil(((square_size / 2) - 25) / 50) * 50)
             results = []
