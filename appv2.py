@@ -84,9 +84,9 @@ def main():
 
         st.markdown("#### 📐 Recommended Duct Sizes")
         if unit_system == "IP":
-            st.markdown(f"Based on Q = **{Q_input} CFM** and Target dp = **{dp_input} inch/100ft.**")
+            st.markdown(f"Based on Q = **{int(Q_input)} CFM** and Target dp = **{dp_input} inch/100ft.**")
         else:
-            st.markdown(f"Based on Q = **{Q_input} L/s** and Target dp = **{dp_input} Pa/m.**")
+            st.markdown(f"Based on Q = **{int(Q_input)} L/s** and Target dp = **{dp_input} Pa/m.**")
 
         initial_height = max(50, math.ceil(((square_size / 2) - 25) / 50) * 50)
         results = []
