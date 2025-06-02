@@ -113,7 +113,7 @@ def main():
             if unit_system == "IP":
                 width_ip = width / 25
                 height_ip = height / 25
-                De_ip = De / 25
+                De_ip = De / 25.4
                 results.append({
                     "Option": i + 1,
                     "OK": marker,
