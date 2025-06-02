@@ -117,7 +117,7 @@ def main():
                 results.append({
                     "Option": i + 1,
                     "OK": marker,
-                    "W×H (inch)": f"{width_ip:.1f}×{height_ip:.1f}",
+                    "W×H (inch)": f"{width_ip:.0f}×{height_ip:.0f}",
                     "Aspect Ratio": f"{AR:.2f}",
                     "Velocity (ft/min)": f"{velocity * 196.85:.0f}",  # m/s to ft/min
                     "dp (inch/100ft)": f"{actual_dp / 8.172:.3f}",
