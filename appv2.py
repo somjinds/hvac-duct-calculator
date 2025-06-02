@@ -62,9 +62,9 @@ def main():
     with st.form("duct_form"):
         col1, col2 = st.columns(2)
         with col1:
-            Q_input = st.number_input(Q_label, min_value=25.0, step=25.0, value=default_Q)
+            Q_input = st.number_input(Q_label, min_value=float(25), step=float(25), value=float(default_Q))
         with col2:
-            dp_input = st.number_input(dp_label, min_value=0.005, step=0.005, value=default_dp, format="%.3f")
+            dp_input = st.number_input(dp_label, min_value=0.005, step=0.005, value=float(default_dp), format="%.3f")
 
         submitted = st.form_submit_button("Calculate")
 
