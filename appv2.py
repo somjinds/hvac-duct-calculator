@@ -121,7 +121,7 @@ def main():
                     "Aspect Ratio": f"{AR:.2f}",
                     "Velocity (ft/min)": f"{velocity * 196.85:.0f}",  # m/s to ft/min
                     "dp (inch/100ft)": f"{actual_dp / 8.172:.3f}",
-                    "De (inch)": f"{De_ip:.0f}",
+                    "De (inch)": f"{De_ip:.1f}",
                 })
             else:
                 results.append({
