@@ -45,7 +45,7 @@ def main():
     st.set_page_config(page_title="HVAC Duct Sizing Calculator", layout="centered")
     st.title("Duct Size Calculator")
 
-    unit_system = st.radio("", ["SI", "IP"], horizontal=True)
+    unit_system = st.radio("Select Unit System", ["SI", "IP"], horizontal=True)
 
     # Set default inputs based on selected unit
     if unit_system == "SI":
