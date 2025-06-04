@@ -109,7 +109,7 @@ def main():
 
                 def highlight_valid(row):
                     if row["OK"] == "✓":
-                        return ['background-color: #808080; font-weight: bold'] * len(row)
+                        return ['background-color: #d4edda; font-weight: bold'] * len(row)
                     else:
                         return [''] * len(row)
 
