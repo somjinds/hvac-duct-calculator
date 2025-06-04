@@ -113,7 +113,7 @@ def main():
                     else:
                         return [''] * len(row)
 
-                st.dataframe(df.style.apply(highlight_valid, axis=1), use_container_width=True)
+                st.dataframe(df, use_container_width=True)
                 #st.dataframe(df.style.apply(highlight_valid, axis=1), use_container_width=True)
                 st.markdown("[Visit somjinnotes.com for more HVAC knowledge sharing](https://somjinnotes.com)")
             else:
