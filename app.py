@@ -3,26 +3,48 @@ import math
 import pandas as pd
 
 # --- Duct Calculation Functions ---
+def estimate_duct_dia_QV(Q: float, V: float) -> float | None:
+    pi = math.pi
 
-def estimate_ideal_square_duct(Q: float, dp: float) -> float | None:
+    if Q <= 0 or V <=0:
+        print("Error: Airflow rate and velocity must be positive value.")
+        return None
+
+    # 1. Convert Airflow rate from L/s to m^3/s
+    airFlowRate_m3s = Q / 1000
+
+    # 2. Calculate cross section area (m^2)
+    # Q = A * V => A = Q / V
+    ductArea_m2 = airFlowRate_m3s / V
+
+    # 3. Calculate diameter in meters for a round duct
+    # A = pi/4 * D^2 => D = sqrt ((4 * A)/pi)
+    ductDia_m = math.sqrt((4*ductArea_m2)/math.pi)
+
+    # 4. Convert diameter to millimeters
+    ductDia_mm = ductDia_m * 1000
+
+    return float(ductDia_mm)
+
+
+  
+
+def estimate_rectangular_duct_width(Q: float, dp: float, b: float) -> float | None:
     pi = math.pi
     calc_const = 9.6e9 / (pi ** 2)
-    size = 50
-    max_size = 3000
-    dp_min = dp * 0.8
-    dp_max = dp * 1.2
 
-    while size <= max_size:
-        De = 1.3 * ((size ** 2) ** 0.625) * ((2 * size) ** -0.25)
+    for a in range(50, 5001):
+        De = 1.3 * (a * b) ** 0.625 / (a + b) ** 0.25
         f1 = 0.11 * ((0.09 / De + 0.0008043 * De / Q) ** 0.25)
         f = f1 if f1 >= 0.018 else 0.85 * f1 + 0.0028
-        hl = calc_const * f * Q ** 2 * De ** -5
+        hl = calc_const * f * Q ** 2 / De ** 5
 
-        if dp_min <= hl <= dp_max:
-            return float(size)
-        size += 1
+        if abs(hl - dp) <= 0.005:
+            return float(a)
 
     return None
+
+
 
 def estimate_rectangular_duct_width(Q: float, dp: float, b: float) -> float | None:
     pi = math.pi
